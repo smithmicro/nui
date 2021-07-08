@@ -13,7 +13,7 @@
 
 + (NSDictionary*)titleTextAttributesForClass:(NSString*)className;
 + (NSDictionary*)titleTextAttributesForClass:(NSString*)className withSuffix:(NSString*) suffix;
-+ (NSMutableAttributedString *)generateStylesFromHtml:(NSString *)htmlText;
-+ (NSArray *)generateStylesAndLinksFromHtml:(NSString *)htmlText;
++ (NSMutableAttributedString *)generateStylesFromHtml:(NSString *)htmlText originalFont:(UIFont *)originalFont adjustsFontForContentSizeCategory:(BOOL *) adjustsFontForContentSizeCategory;
++ (NSArray *)generateStylesAndLinksFromHtml:(NSString *)htmlText originalFont:(UIFont *)originalFont adjustsFontForContentSizeCategory:(BOOL *) adjustsFontForContentSizeCategory;
 
 @end

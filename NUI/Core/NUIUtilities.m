@@ -10,7 +10,21 @@
 
 @implementation NUIUtilities
 
-+ (NSDictionary*)titleTextAttributesForClass:(NSString*)className withSuffix:(NSString*) suffix
++ (UIFont *)calculateFontToAdjust:(UIFont *)customFont originalFont:(UIFont *)originalFont adjustsFontForContentSizeCategory:(BOOL *) adjustsFontForContentSizeCategory {
+    if (adjustsFontForContentSizeCategory && !customFont) {
+        return nil;
+    }
+
+    UIFont *fontToScale = originalFont;
+    if (customFont) {
+        fontToScale = customFont;
+    }
+
+    UIFont *newFont = [[UIFontMetrics defaultMetrics] scaledFontForFont:fontToScale];
+    return newFont;
+}
+
++ (NSDictionary *)titleTextAttributesForClass:(NSString *)className withSuffix:(NSString *)suffix
 {
     NSMutableDictionary *titleTextAttributes = [NSMutableDictionary dictionary];
     
@@ -77,8 +91,7 @@
     return selector;
 }
 
-+ (NSMutableAttributedString *)generateStylesFromHtml:(NSString *)htmlText
-{
++ (NSMutableAttributedString *)generateStylesFromHtml:(NSString *)htmlText originalFont:(UIFont *)originalFont adjustsFontForContentSizeCategory:(BOOL *) adjustsFontForContentSizeCategory {
     NSRegularExpression *outerSpanRegex = [NSRegularExpression regularExpressionWithPattern:@"<span[^>]*>.*<.*</span>" options:NSRegularExpressionDotMatchesLineSeparators error:nil];
     NSArray *matches = [outerSpanRegex matchesInString:htmlText options:0 range:NSMakeRange(0, htmlText.length)];
     
@@ -91,7 +104,8 @@
     NSMutableDictionary<NSAttributedStringKey, id> *attributes = [[NSMutableDictionary alloc] init];
     
     if (surroundingNuiClass != nil && ([NUISettings hasProperty:@"font-name" withClass:surroundingNuiClass] || [NUISettings hasProperty:@"font-size" withClass:surroundingNuiClass])) {
-        attributes[NSFontAttributeName] = [NUISettings getFontWithClass:surroundingNuiClass];
+        UIFont* newFont = [NUISettings getFontWithClass:surroundingNuiClass];
+        attributes[NSFontAttributeName] = [self calculateFontToAdjust:newFont originalFont:originalFont adjustsFontForContentSizeCategory:adjustsFontForContentSizeCategory];
     }
     
     if (surroundingNuiClass != nil && [NUISettings hasProperty:@"font-color" withClass:surroundingNuiClass]) {
@@ -118,6 +132,7 @@
         }
         
         font = [NUISettings getFontWithClass:className];
+        font = [self calculateFontToAdjust:font originalFont:originalFont adjustsFontForContentSizeCategory:adjustsFontForContentSizeCategory];
         [attributedStringResult addAttribute:NSFontAttributeName value:font range:match.range];
         
         if (![NUISettings hasProperty:@"font-color" withClass:className]) {
@@ -184,9 +199,9 @@
     return attributedStringResult;
 }
 
-+ (NSArray *)generateStylesAndLinksFromHtml:(NSString *)htmlText
++ (NSArray *)generateStylesAndLinksFromHtml:(NSString *)htmlText originalFont:(UIFont *)originalFont adjustsFontForContentSizeCategory:(BOOL *) adjustsFontForContentSizeCategory
 {
-    NSMutableAttributedString *attributedText = [NUIUtilities generateStylesFromHtml:htmlText];
+    NSMutableAttributedString *attributedText = [NUIUtilities generateStylesFromHtml:htmlText originalFont:originalFont adjustsFontForContentSizeCategory:adjustsFontForContentSizeCategory];
     NSString *changedHtmlText = attributedText.string;
     
     // Searching for the first link with class name

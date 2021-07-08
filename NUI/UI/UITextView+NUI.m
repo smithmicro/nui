@@ -32,7 +32,7 @@
 
 - (void)setNuiHtmlText:(NSString *)nuiHtmlText
 {
-    NSArray *attributes = [NUIUtilities generateStylesAndLinksFromHtml:nuiHtmlText];
+    NSArray *attributes = [NUIUtilities generateStylesAndLinksFromHtml:nuiHtmlText originalFont:self.font adjustsFontForContentSizeCategory:self.adjustsFontForContentSizeCategory];
     if (attributes == nil) {
         return;
     }

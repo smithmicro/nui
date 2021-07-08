@@ -100,6 +100,7 @@
 		7C5A17A81CCE1435001288C5 /* NUIActivityIndicatorRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A17A71CCE1435001288C5 /* NUIActivityIndicatorRenderer.m */; };
 		7C5A17AB1CCE1822001288C5 /* NUIActivityIndicatorRendererTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A17AA1CCE1822001288C5 /* NUIActivityIndicatorRendererTests.m */; };
 		7C5A17AE1CCE19BC001288C5 /* UIActivityIndicatorView+NUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5A17AD1CCE19BC001288C5 /* UIActivityIndicatorView+NUI.m */; };
+		7EE7D485268B8609002E6A5C /* NSString+NUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE7D484268B8609002E6A5C /* NSString+NUI.m */; };
 		832B9C1B176AEADA0054F06E /* iPad Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832B9C19176AEADA0054F06E /* iPad Storyboard.storyboard */; };
 		832B9C1E176AEAED0054F06E /* iPhone Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832B9C1C176AEAED0054F06E /* iPhone Storyboard.storyboard */; };
 		89B940701671418200850A9A /* NUIAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B940241671418100850A9A /* NUIAppearance.m */; };
@@ -276,6 +277,8 @@
 		7C5A17AA1CCE1822001288C5 /* NUIActivityIndicatorRendererTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NUIActivityIndicatorRendererTests.m; path = UIActivityIndicatorView/NUIActivityIndicatorRendererTests.m; sourceTree = "<group>"; };
 		7C5A17AC1CCE19BC001288C5 /* UIActivityIndicatorView+NUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+NUI.h"; sourceTree = "<group>"; };
 		7C5A17AD1CCE19BC001288C5 /* UIActivityIndicatorView+NUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+NUI.m"; sourceTree = "<group>"; };
+		7EE7D483268B8609002E6A5C /* NSString+NUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NUI.h"; sourceTree = "<group>"; };
+		7EE7D484268B8609002E6A5C /* NSString+NUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NUI.m"; sourceTree = "<group>"; };
 		832B9C1A176AEADA0054F06E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/iPad Storyboard.storyboard"; sourceTree = "<group>"; };
 		832B9C1D176AEAED0054F06E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/iPhone Storyboard.storyboard"; sourceTree = "<group>"; };
 		859E0F7ED34F6F2C7B9E0903 /* Pods-NUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NUITests.release.xcconfig"; path = "Target Support Files/Pods-NUITests/Pods-NUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -696,6 +699,8 @@
 		89B940221671418100850A9A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7EE7D483268B8609002E6A5C /* NSString+NUI.h */,
+				7EE7D484268B8609002E6A5C /* NSString+NUI.m */,
 				89B940231671418100850A9A /* NUIAppearance.h */,
 				89B940241671418100850A9A /* NUIAppearance.m */,
 				89B940251671418100850A9A /* NUIConverter.h */,
@@ -1138,6 +1143,7 @@
 				D983DF1F169DC87800A3A180 /* NUISliderRenderer.m in Sources */,
 				4ADA71C616A0F15C00BDCF81 /* UISearchBar+NUI.m in Sources */,
 				4ADA71CA16A103CD00BDCF81 /* NUISearchBarRenderer.m in Sources */,
+				7EE7D485268B8609002E6A5C /* NSString+NUI.m in Sources */,
 				D8E7168116B8AF4400686854 /* NUIControlRenderer.m in Sources */,
 				D8E7168516B9980300686854 /* UIControl+NUI.m in Sources */,
 				DBB82A8B1C5C2DDF00A483D3 /* NUIPageControlRenderer.m in Sources */,

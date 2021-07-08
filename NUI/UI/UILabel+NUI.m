@@ -58,7 +58,7 @@
 {
     if (text != nil && [text hasHtmlElements]) {
         self.nuiClass = kNUIClassNone;
-        self.attributedText = [NUIUtilities generateStylesFromHtml:text];
+        self.attributedText = [NUIUtilities generateStylesFromHtml:text originalFont:self.font adjustsFontForContentSizeCategory:self.adjustsFontForContentSizeCategory];
         return;
     }
     
